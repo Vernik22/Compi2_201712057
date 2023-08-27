@@ -8,21 +8,21 @@ export default function App() {
     editorRef.current = editor;
   }
 
-  const handleTranslate = () => {
+  const handleTranslate = async () => {
     const content = editorRef.current.getValue()
-    const url = 'localhost:8080/texto'
+    const url = 'http://localhost:8080/texto'
     //fetch hacia el back
-    const requestOptions = {
-      method: 'POST',
-      Headers: {'Content-Type':'application/json'},
-      body: JSON.stringify({title: 'React POST Request Swift', data:content})
-    };
-
-    fetch(url,requestOptions   )
-      .then( response => response.json())
-      .then(data => this.setState({postId: data.id}));
-     
-
+    try {
+      const response = await fetch( url,{
+        method: 'POST',
+        headers: {'Content-Type':'application/json'},
+        mode: 'no-cors',
+        body: JSON.stringify({title: 'React POST Request Swift', data:content}),
+      });
+       
+    } catch (error) {
+      
+    }
   }
 
   return (

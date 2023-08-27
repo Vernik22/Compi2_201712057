@@ -70,8 +70,7 @@ func tradSwift(w http.ResponseWriter, r *http.Request) {
 
 	fmt.Println(textnuevo.Data)
 
-	log.Println(textnuevo)
-	w.Write([]byte("Body recibido"))
+	//w.Write([]byte("Body recibido"))
 	/*
 		var url = "http://Py:3000/traduccion/recibir"
 		//var url = "http://localhost:3000/traduccion/recibir"
